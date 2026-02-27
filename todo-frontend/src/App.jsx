@@ -86,7 +86,7 @@ export default function App() {
         </div>
 
         {loading && <div className="empty">Loading from Laravel API...</div>}
-        {error   && <div className="err">⚠️ {error}</div>}
+        {error   && <div className="err"> {error}</div>}
 
         {!loading && !error && (
           <>
