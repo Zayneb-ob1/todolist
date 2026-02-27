@@ -1,0 +1,260 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f4f6fb;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.dashboard {
+  max-width: 700px;
+  margin: 0 auto 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 16px;
+  padding: 22px 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  border-top: 4px solid;
+}
+
+.stat-card.total  { border-color: #6366f1; }
+.stat-card.active { border-color: #f59e0b; }
+.stat-card.done   { border-color: #22c55e; }
+
+.stat-num {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.stat-card.total  .stat-num { color: #6366f1; }
+.stat-card.active .stat-num { color: #f59e0b; }
+.stat-card.done   .stat-num { color: #22c55e; }
+
+.stat-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #aaa;
+  margin-top: 6px;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  max-width: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1, #22c55e);
+  transition: width 0.5s ease;
+}
+
+.card-top {
+  padding: 28px 28px 0;
+}
+
+.card-top h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1a1a2e;
+  letter-spacing: -0.5px;
+}
+
+.card-top p {
+  font-size: 13px;
+  color: #aaa;
+  margin-top: 3px;
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+  padding: 20px 28px;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.input-row input {
+  flex: 1;
+  border: 2px solid #ebebeb;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 14.5px;
+  font-family: inherit;
+  color: #222;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-row input:focus {
+  border-color: #6366f1;
+}
+
+.input-row input::placeholder {
+  color: #ccc;
+}
+
+.btn-add {
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 22px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-add:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+}
+
+.section-label {
+  padding: 16px 28px 8px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #bbb;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 28px;
+  border-bottom: 1px solid #f7f7f7;
+  transition: background 0.15s;
+  animation: slideIn 0.2s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.todo-item:hover {
+  background: #fafafe;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.cb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #e0e0e0;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+  font-size: 11px;
+  color: white;
+}
+
+.cb:hover {
+  border-color: #6366f1;
+}
+
+.cb.checked {
+  background: #22c55e;
+  border-color: #22c55e;
+}
+
+.todo-text {
+  flex: 1;
+  font-size: 15px;
+  color: #222;
+  font-weight: 500;
+}
+
+.todo-text.done-text {
+  text-decoration: line-through;
+  color: #ccc;
+  font-weight: 400;
+}
+
+.btn-del {
+  background: none;
+  border: none;
+  color: #e0e0e0;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 6px;
+  line-height: 1;
+  transition: color 0.2s;
+  opacity: 0;
+}
+
+.todo-item:hover .btn-del {
+  opacity: 1;
+}
+
+.btn-del:hover {
+  color: #ef4444;
+}
+
+.done-section {
+  border-top: 2px dashed #f0f0f0;
+}
+
+.empty {
+  padding: 40px 28px;
+  text-align: center;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 28px;
+  background: #fafafa;
+  border-top: 1px solid #f0f0f0;
+  font-size: 12px;
+  color: #bbb;
+}
+
+.pct {
+  color: #6366f1;
+  font-weight: 700;
+}
+
+.err {
+  margin: 20px 28px;
+  background: #fff1f2;
+  color: #ef4444;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+}
