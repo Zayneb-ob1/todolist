@@ -11,8 +11,11 @@ export default function App() {
   // GET
   useEffect(() => {
     api.get("/todos")
-      .then((res) => { setTodos(res.data); setLoading(false); })
-      .catch(() => { setError("Cannot connect to Laravel API."); setLoading(false); });
+      .then((res) => { 
+        setTodos(res.data); 
+        setLoading(false); })
+      .catch(() => { setError("Cannot connect to Laravel API."); setLoading(false); 
+  });
   }, []);
 
   //POSt
